@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Pradhuman Singh Medical Store | Sheohar, Bihar</title>
+    <title>Pradhuman Singh Medical Store | Village Pharmacy - Amba Kala, Sheohar</title>
     <!-- Google Fonts & Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -15,15 +15,14 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: #eef3ec;
-            color: #1e2a2e;
+            font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
+            background: #eef5ea;
+            color: #1e2a1f;
             line-height: 1.5;
             scroll-behavior: smooth;
-            position: relative;
         }
 
-        /* RANDOM BACKGROUND OVERLAY – dynamic via JS */
+        /* Warm, earthy village-friendly design */
         .bg-overlay {
             position: fixed;
             top: 0;
@@ -32,9 +31,8 @@
             height: 100%;
             z-index: -2;
             background-size: cover;
-            background-position: center;
+            background-position: center 30%;
             background-repeat: no-repeat;
-            transition: opacity 0.6s ease;
         }
         .bg-overlay::after {
             content: "";
@@ -43,31 +41,25 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.82);
+            background: rgba(245, 250, 240, 0.88);
             z-index: -1;
-        }
-        /* subtle grain texture for better readability */
-        .content-wrapper {
-            position: relative;
-            z-index: 2;
         }
 
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
 
-        /* header */
+        /* header - warm and welcoming */
         header {
-            background: linear-gradient(135deg, #0a3b2fcc, #145c48cc);
-            backdrop-filter: blur(2px);
+            background: linear-gradient(135deg, #1b4d3e, #2c6e58);
             color: white;
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .header-flex {
@@ -79,413 +71,374 @@
         }
 
         .logo h1 {
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             font-weight: 700;
-            letter-spacing: -0.3px;
-            text-shadow: 1px 1px 0 #1e4a3a;
         }
-
         .logo p {
             font-size: 0.8rem;
             opacity: 0.9;
-            margin-top: 4px;
+            font-style: italic;
         }
 
         .nav-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             flex-wrap: wrap;
         }
-
         .nav-links a {
             color: white;
             text-decoration: none;
             font-weight: 600;
-            transition: 0.2s;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             padding: 6px 0;
             border-bottom: 2px solid transparent;
+            transition: 0.2s;
         }
-
         .nav-links a:hover, .nav-links a.active {
-            border-bottom-color: #f7c35c;
-            color: #ffe6a3;
+            border-bottom-color: #f9cf6e;
+            color: #fff0b5;
         }
 
-        /* address bar with slight background */
+        /* Address banner - village friendly */
         .address-bar {
-            background: #1e3629e0;
-            backdrop-filter: blur(4px);
-            padding: 10px 0;
-            border-bottom: 1px solid #cbdcc2;
-            color: #fef9e6;
+            background: #2d5a48;
+            color: #fef7e0;
+            padding: 12px 0;
+            font-size: 0.9rem;
         }
-
         .address-bar .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
-
-        .address-detail i {
-            margin-right: 6px;
-            color: #ffdf8c;
-        }
-
-        .pincode-badge {
-            background: #e0b34b;
-            color: #1e3a2f;
+        .village-highlight {
+            background: #f5bc70;
+            color: #2a4d3a;
             padding: 4px 14px;
             border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 700;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+        .address-detail i {
+            margin-right: 6px;
+            color: #ffdfa5;
         }
 
+        /* main content */
         main {
-            min-height: 70vh;
             padding: 2rem 0;
+            min-height: 65vh;
         }
 
-        /* pages */
+        /* page switching */
         .page {
             display: none;
-            animation: fadeIn 0.35s ease;
+            animation: fadeIn 0.3s ease;
         }
-
         .active-page {
             display: block;
         }
-
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px);}
+            from { opacity: 0; transform: translateY(8px);}
             to { opacity: 1; transform: translateY(0);}
         }
 
-        /* cards & ui */
+        /* village style cards & typography */
         .hero {
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(3px);
-            border-radius: 32px;
-            padding: 2.5rem 2rem;
+            background: rgba(255, 252, 235, 0.92);
+            border-radius: 36px;
+            padding: 2rem 1.8rem;
             margin-bottom: 2rem;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            border: 1px solid rgba(120, 150, 100, 0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid #cde2cb;
         }
-
         .hero h2 {
-            font-size: 2.2rem;
-            color: #0a3b2f;
+            font-size: 1.9rem;
+            color: #1d5a48;
         }
-
+        .hero p {
+            font-size: 1rem;
+            margin-top: 12px;
+        }
         .btn {
-            display: inline-block;
-            background-color: #1e6f5c;
+            background: #2c7a60;
             color: white;
-            padding: 10px 28px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: 0.2s;
-            margin-top: 1rem;
             border: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: 0.2s;
         }
-
         .btn:hover {
-            background-color: #0e4f41;
+            background: #1f5c48;
             transform: scale(1.02);
         }
 
         .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            border-left: 6px solid #1e6f5c;
+            font-size: 1.7rem;
+            margin: 1.8rem 0 1.2rem 0;
+            border-left: 6px solid #2c7a60;
             padding-left: 18px;
-            background: rgba(255, 255, 255, 0.6);
-            display: inline-block;
+            background: rgba(245, 250, 235, 0.7);
             border-radius: 0 20px 20px 0;
         }
 
         .medicine-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-            gap: 1.8rem;
-            margin-top: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
         }
-
         .card {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(2px);
+            background: rgba(255, 255, 240, 0.94);
             border-radius: 28px;
-            padding: 1.3rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid #dbecdb;
+            padding: 1.2rem;
+            transition: all 0.2s;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+            border: 1px solid #dcecd6;
         }
-
         .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 18px 30px rgba(0,0,0,0.12);
-            background: rgba(255, 255, 255, 0.97);
+            transform: translateY(-3px);
+            background: white;
+            box-shadow: 0 12px 22px rgba(0,0,0,0.08);
         }
-
         .card i {
-            font-size: 2.2rem;
-            color: #1e6f5c;
-            margin-bottom: 12px;
+            font-size: 2rem;
+            color: #2c7a60;
+            margin-bottom: 10px;
         }
-
         .card h3 {
-            font-size: 1.35rem;
-            margin-bottom: 8px;
+            font-size: 1.25rem;
+            margin-bottom: 6px;
         }
-
-        .badge-cat {
-            display: inline-block;
-            background: #c8dfcf;
-            border-radius: 20px;
+        .badge {
+            background: #e2efdb;
+            border-radius: 30px;
             padding: 4px 12px;
             font-size: 0.7rem;
-            font-weight: 700;
+            font-weight: bold;
+            display: inline-block;
             margin-top: 12px;
         }
-
         .contact-card {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(3px);
-            border-radius: 32px;
-            padding: 2rem;
-            border: 1px solid #c2dbbe;
+            background: rgba(255, 255, 245, 0.95);
+            border-radius: 36px;
+            padding: 1.8rem;
+            border: 1px solid #caddc5;
         }
 
         footer {
-            background: #0b2f26cc;
-            backdrop-filter: blur(5px);
-            color: #edf7e7;
-            padding: 2rem 0;
-            margin-top: 3rem;
+            background: #1c4438;
+            color: #ebf7e6;
+            padding: 1.5rem 0;
             text-align: center;
             font-size: 0.85rem;
+            margin-top: 2.5rem;
         }
 
-        @media (max-width: 780px) {
-            .header-flex {
-                flex-direction: column;
-                text-align: center;
-            }
-            .hero h2 {
-                font-size: 1.5rem;
-            }
-            .section-title {
-                font-size: 1.4rem;
-            }
+        @media (max-width: 750px) {
+            .hero h2 { font-size: 1.4rem; }
+            .section-title { font-size: 1.3rem; }
+            .logo h1 { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- Random background overlay (dynamic) -->
+<!-- dynamic background that changes randomly for village vibe (nature + pharmacy) -->
 <div class="bg-overlay" id="randomBg"></div>
 
-<div class="content-wrapper">
-    <header>
-        <div class="container header-flex">
-            <div class="logo">
-                <h1><i class="fas fa-hospital-user"></i> Pradhuman Singh Medical Store</h1>
-                <p>स्वास्थ्य सेवा आपके द्वार | Quality Medicines since 1996</p>
-            </div>
-            <div class="nav-links">
-                <a href="#" data-page="home" class="nav-link active">🏠 Home</a>
-                <a href="#" data-page="antibiotics" class="nav-link">💊 Antibiotics</a>
-                <a href="#" data-page="paincare" class="nav-link">🩹 Pain & Relief</a>
-                <a href="#" data-page="chronic" class="nav-link">❤️ Chronic Care</a>
-                <a href="#" data-page="vitamins" class="nav-link">🍊 Vitamins</a>
-                <a href="#" data-page="firstaid" class="nav-link">🚑 First Aid</a>
-                <a href="#" data-page="contact" class="nav-link">📞 Contact</a>
+<header>
+    <div class="container header-flex">
+        <div class="logo">
+            <h1><i class="fas fa-clinic-medical"></i> Pradhuman Singh Medical Store</h1>
+            <p>⚕️ गाँव की सेहत का सहारा | गमछा से लेकर दवाई तक</p>
+        </div>
+        <div class="nav-links">
+            <a href="#" data-page="home" class="nav-link active">🏠 गृह पृष्ठ</a>
+            <a href="#" data-page="antibiotics" class="nav-link">💊 एंटीबायोटिक</a>
+            <a href="#" data-page="paincare" class="nav-link">🩹 दर्द निवारक</a>
+            <a href="#" data-page="chronic" class="nav-link">❤️ पुरानी बीमारी</a>
+            <a href="#" data-page="vitamins" class="nav-link">🍊 विटामिन</a>
+            <a href="#" data-page="firstaid" class="nav-link">🚑 प्राथमिक उपचार</a>
+            <a href="#" data-page="contact" class="nav-link">📞 संपर्क करें</a>
+        </div>
+    </div>
+</header>
+
+<!-- Address strip with full village details (easy to read) -->
+<div class="address-bar">
+    <div class="container">
+        <div class="address-detail">
+            <i class="fas fa-map-marker-alt"></i> <strong>गाँव / पोस्ट:</strong> अम्बा काला (Amba Kala), <strong>थाना:</strong> पिपराही, <strong>जिला:</strong> शिवहर (Sheohar), बिहार - 843329
+        </div>
+        <div class="village-highlight">
+            <i class="fas fa-flag-checkered"></i> पिन कोड: 843329 | पिपराही के पास
+        </div>
+    </div>
+</div>
+
+<main class="container">
+    <!-- ==================== HOME (village friendly) ==================== -->
+    <div id="home-page" class="page active-page">
+        <div class="hero">
+            <h2><i class="fas fa-hand-holding-heart"></i> स्वागत है आपका | पटना-दिल्ली नहीं, अपने गाँव की दुकान</h2>
+            <p>✅ असली दवा | ✅ गाँव में होम डिलीवरी | ✅ सस्ती जेनेरिक दवाइयाँ | ✅ सुबह 8 से रात 10 बजे तक</p>
+            <a href="#" data-page="contact" class="btn nav-link"><i class="fas fa-phone-alt"></i> संपर्क करें / फ़ोन करें</a>
+        </div>
+
+        <div>
+            <h2 class="section-title">🌟 क्यों हम ? गाँव वालों के लिए खास</h2>
+            <div class="medicine-grid">
+                <div class="card"><i class="fas fa-rupee-sign"></i><h3>कम कीमत, अच्छी दवा</h3><p>जेनेरिक दवाइयां उपलब्ध, किसान और मजदूर भाईयों के बजट के अनुसार।</p></div>
+                <div class="card"><i class="fas fa-motorcycle"></i><h3>गाँव में डोर-टू-डोर</h3><p>अम्बा काला, पिपराही, रामपुर, हरसिंहा आदि गाँवों में मुफ्त डिलीवरी*।</p></div>
+                <div class="card"><i class="fas fa-chalkboard-user"></i><h3>हिंदी / मैथिली / भोजपुरी</h3><p>दवा का पूरा जानकारी आपकी भाषा में। प्रधानमान सिंह खुद मदद करेंगे।</p></div>
+                <div class="card"><i class="fas fa-prescription-bottle"></i><h3>पुरानी बीमारियों का ध्यान</h3><p>शुगर, प्रेशर, अस्थमा, थायराइड की नियमित दवा स्टॉक में।</p></div>
             </div>
         </div>
-    </header>
 
-    <!-- Address strip with full location -->
-    <div class="address-bar">
-        <div class="container">
-            <div class="address-detail">
-                <i class="fas fa-map-marker-alt"></i> Vill+Post: Amba Kala, PS: Piprahi, District: Sheohar, Bihar - <strong>843329</strong>
-            </div>
-            <div class="pincode-badge">
-                <i class="fas fa-location-dot"></i> PIN: 843329 | Bihar
+        <div>
+            <h2 class="section-title">📌 सभी प्रकार की दवाइयाँ (6+ श्रेणियाँ)</h2>
+            <div class="medicine-grid">
+                <div class="card"><i class="fas fa-capsules"></i><h3>एंटीबायोटिक</h3><p>संक्रमण में: एमोक्सिसिलिन, एज़िथ्रोमाइसिन, सिप्रोफ्लोक्सासिन</p><span class="badge">20+ किस्म</span></div>
+                <div class="card"><i class="fas fa-tablets"></i><h3>दर्द / बुखार</h3><p>पैरासिटामोल, इबुप्रोफेन, डाइक्लोफिनैक, नसों का दर्द</p><span class="badge">15+ विकल्प</span></div>
+                <div class="card"><i class="fas fa-heartbeat"></i><h3>डायबिटीज-प्रेशर</h3><p>मेटफॉर्मिन, टेल्मिसार्टन, एटोरवास्टेटिन, इंसुलिन</p><span class="badge">पूरा रेंज</span></div>
+                <div class="card"><i class="fas fa-apple-alt"></i><h3>विटामिन / पोषण</h3><p>मल्टीविटामिन, विटामिन डी, कैल्शियम, जिंक, आयरन</p><span class="badge">बच्चे-बुजुर्ग</span></div>
+                <div class="card"><i class="fas fa-band-aid"></i><h3>प्राथमिक उपचार</h3><p>पट्टी, सवलॉन, बर्न क्रीम, गॉज, डेटॉल</p><span class="badge">घरेलू किट</span></div>
+                <div class="card"><i class="fas fa-lungs"></i><h3>सर्दी-खाँसी-अस्थमा</h3><p>इनहेलर, कफ सिरप, एलर्जी की दवा, स्टेरॉयड</p><span class="badge">राहत पाएं</span></div>
             </div>
         </div>
     </div>
 
-    <main class="container">
-        <!-- ==================== HOME PAGE ==================== -->
-        <div id="home-page" class="page active-page">
-            <div class="hero">
-                <h2><i class="fas fa-hand-holding-medical"></i> Your Trusted Neighbourhood Pharmacy</h2>
-                <p style="font-size:1.1rem; margin-top:12px;">Authentic medicines | Prescription & OTC | Fast service in Amba Kala, Sheohar</p>
-                <a href="#" data-page="contact" class="btn nav-link">📞 Get in touch</a>
-            </div>
-            <div>
-                <h2 class="section-title">🌟 Why Choose Us?</h2>
-                <div class="medicine-grid">
-                    <div class="card"><i class="fas fa-check-circle"></i><h3>100% Genuine</h3><p>We stock only licensed, authentic medicines from trusted brands.</p></div>
-                    <div class="card"><i class="fas fa-truck"></i><h3>Free Delivery*</h3><p>In & around Piprahi & Sheohar (conditions apply).</p></div>
-                    <div class="card"><i class="fas fa-clock"></i><h3>Open Daily</h3><p>8:00 AM – 10:00 PM, even Sundays & holidays.</p></div>
-                    <div class="card"><i class="fas fa-stethoscope"></i><h3>Expert Guidance</h3><p>Qualified pharmacists for prescription support.</p></div>
-                </div>
-            </div>
-            <div style="margin-top: 2.5rem;">
-                <h2 class="section-title">📌 All Medicine Categories Available</h2>
-                <div class="medicine-grid">
-                    <div class="card"><i class="fas fa-capsules"></i><h3>Antibiotics</h3><p>Amoxicillin, Azithromycin, Ciprofloxacin & more.</p><span class="badge-cat">20+ variants</span></div>
-                    <div class="card"><i class="fas fa-tablets"></i><h3>Pain Relief</h3><p>Paracetamol, Ibuprofen, Diclofenac, Opioid alternatives.</p><span class="badge-cat">15+ options</span></div>
-                    <div class="card"><i class="fas fa-heartbeat"></i><h3>Chronic Care</h3><p>Diabetes (Metformin, Insulin), BP, Cholesterol, Asthma.</p><span class="badge-cat">complete range</span></div>
-                    <div class="card"><i class="fas fa-apple-alt"></i><h3>Vitamins & Supplements</h3><p>Multivitamins, Calcium, Vitamin D, B12, Omega-3.</p><span class="badge-cat">30+ brands</span></div>
-                    <div class="card"><i class="fas fa-band-aid"></i><h3>First Aid & Wound Care</h3><p>Bandages, antiseptics, gauze, burn creams, plasters.</p><span class="badge-cat">essential kit</span></div>
-                    <div class="card"><i class="fas fa-lungs"></i><h3>Respiratory</h3><p>Inhalers, cough syrups, nebulizers, allergy meds.</p><span class="badge-cat">full stock</span></div>
-                </div>
-            </div>
+    <!-- ==================== ANTIBIOTICS PAGE ==================== -->
+    <div id="antibiotics-page" class="page">
+        <h2 class="section-title"><i class="fas fa-capsules"></i> एंटीबायोटिक दवाएं (संक्रमण के लिए)</h2>
+        <p style="background: #e2f0db; display: inline-block; padding: 6px 18px; border-radius: 30px;">डॉक्टर के पर्चे पर ही दी जाती हैं | सुरक्षित इस्तेमाल ज़रूरी</p>
+        <div class="medicine-grid">
+            <div class="card"><h3>एमोक्सिसिलिन 500mg</h3><p>गला, टॉन्सिल, दांत का संक्रमण</p><span class="badge">कैप्सूल</span></div>
+            <div class="card"><h3>एज़िथ्रोमाइसिन 500mg</h3><p>निमोनिया, टाइफाइड, त्वचा संक्रमण</p><span class="badge">टैबलेट</span></div>
+            <div class="card"><h3>सिप्रोफ्लोक्सासिन 500mg</h3><p>पेशाब में जलन, पेट के बैक्टीरिया</p><span class="badge">टैबलेट</span></div>
+            <div class="card"><h3>डॉक्सीसाइक्लिन 100mg</h3><p>मुंहासे, मलेरिया बचाव, लाइम रोग</p><span class="badge">कैप्सूल</span></div>
+            <div class="card"><h3>सेफिक्साइम 200mg</h3><p>मूत्र, कान-नाक संक्रमण में कारगर</p><span class="badge">टैबलेट</span></div>
+            <div class="card"><h3>मेट्रोनिडाजोल 400mg</h3><p>पेचिश, दस्त, मुंह के अल्सर</p><span class="badge">गोली</span></div>
         </div>
+    </div>
 
-        <!-- ==================== CATEGORY PAGES ==================== -->
-        <!-- Antibiotics -->
-        <div id="antibiotics-page" class="page">
-            <h2 class="section-title"><i class="fas fa-capsules"></i> Antibiotics & Anti-infectives</h2>
-            <p style="background: rgba(255,255,240,0.7); padding: 0.5rem 1rem; border-radius: 60px; display: inline-block;">Complete range of prescription antibiotics and broad-spectrum medicines.</p>
-            <div class="medicine-grid" style="margin-top: 30px;">
-                <div class="card"><h3>Amoxicillin 500mg</h3><p>Penicillin group – bacterial infections.</p><span class="badge-cat">Capsule</span></div>
-                <div class="card"><h3>Azithromycin 500mg</h3><p>Respiratory & skin infections, typhoid.</p><span class="badge-cat">Tablet</span></div>
-                <div class="card"><h3>Ciprofloxacin 500mg</h3><p>UTI, gastrointestinal infections.</p><span class="badge-cat">Tablet</span></div>
-                <div class="card"><h3>Doxycycline 100mg</h3><p>Acne, Lyme disease, malaria prophylaxis.</p><span class="badge-cat">Capsule</span></div>
-                <div class="card"><h3>Cefixime 200mg</h3><p>Third-gen cephalosporin, broad coverage.</p><span class="badge-cat">Tablet</span></div>
-                <div class="card"><h3>Clindamycin 300mg</h3><p>Anaerobic & staphylococcal infections.</p><span class="badge-cat">Capsule</span></div>
-                <div class="card"><h3>Nitrofurantoin</h3><p>Specialized for urinary tract infection.</p><span class="badge-cat">CR form</span></div>
-                <div class="card"><h3>Metronidazole 400mg</h3><p>Bacterial vaginosis, amoebiasis, dental.</p><span class="badge-cat">Tablet</span></div>
+    <!-- ==================== PAIN RELIEF ==================== -->
+    <div id="paincare-page" class="page">
+        <h2 class="section-title"><i class="fas fa-tablets"></i> दर्द निवारक, बुखार व सूजन की दवा</h2>
+        <p>सिर दर्द, जोड़ों का दर्द, मांसपेशियों में दर्द, चोट लगने पर तुरंत राहत।</p>
+        <div class="medicine-grid">
+            <div class="card"><h3>पैरासिटामोल 500mg</h3><p>बुखार व हल्का दर्द, सबसे सुरक्षित</p><span class="badge">गोली/सिरप</span></div>
+            <div class="card"><h3>इबुप्रोफेन 400mg</h3><p>गठिया, कमर दर्द, सूजन कम करे</p><span class="badge">टैबलेट</span></div>
+            <div class="card"><h3>डाइक्लोफिनैक सोडियम</h3><p>जोड़ों का तेज दर्द, मोच</p><span class="badge">गोली/जैल</span></div>
+            <div class="card"><h3>नाप्रोक्सन 250mg</h3><p>लंबे समय तक असरदार</p><span class="badge">टैबलेट</span></div>
+            <div class="card"><h3>कॉम्बिफ्लैम</h3><p>इबुप्रोफेन+पैरासिटामोल, शक्तिशाली</p><span class="badge">पट्टी</span></div>
+            <div class="card"><h3>ट्रामाडोल 50mg</h3><p>गंभीर दर्द, डॉक्टर सलाह अनिवार्य</p><span class="badge">कैप्सूल</span></div>
+        </div>
+    </div>
+
+    <!-- ==================== CHRONIC (Diabetes, BP) ==================== -->
+    <div id="chronic-page" class="page">
+        <h2 class="section-title"><i class="fas fa-heartbeat"></i> पुरानी बीमारियों की दवा (पूरी सुविधा)</h2>
+        <p>डायबिटीज, ब्लड प्रेशर, कोलेस्ट्रॉल, थायराइड और दमा की सभी दवाएं नियमित रूप से उपलब्ध।</p>
+        <div class="medicine-grid">
+            <div class="card"><h3>मेटफॉर्मिन 500mg SR</h3><p>टाइप 2 डायबिटीज, शुगर कंट्रोल</p><span class="badge">शुगर की दवा</span></div>
+            <div class="card"><h3>ग्लिमिपिराइड + मेटफॉर्मिन</h3><p>कॉम्बिनेशन बेहतर शुगर प्रबंधन</p><span class="badge">टैबलेट</span></div>
+            <div class="card"><h3>टेल्मिसार्टन 40mg</h3><p>हाई ब्लड प्रेशर, हार्ट प्रोटेक्शन</p><span class="badge">टैबलेट</span></div>
+            <div class="card"><h3>एम्लोडिपिन 5mg</h3><p>बीपी नियंत्रित करने वाली दवा</p><span class="badge">गोली</span></div>
+            <div class="card"><h3>एटोरवास्टेटिन 10mg</h3><p>कोलेस्ट्रॉल कम करे, हार्ट के लिए</p><span class="badge">टैबलेट</span></div>
+            <div class="card"><h3>ह्यूमन इंसुलिन (वायल)</h3><p>शुगर के मरीजों के लिए इंजेक्शन</p><span class="badge">रेफ्रिजरेटेड</span></div>
+            <div class="card"><h3>सैल्बुटामॉल इनहेलर</h3><p>अस्थमा/सांस फूलने में तुरंत राहत</p><span class="badge">इनहेलर</span></div>
+            <div class="card"><h3>थायरोक्सिन 50/100 mcg</h3><p>थायराइड हार्मोन रिप्लेसमेंट</p><span class="badge">नियमित लें</span></div>
+        </div>
+    </div>
+
+    <!-- ==================== VITAMINS page (village wellness) ==================== -->
+    <div id="vitamins-page" class="page">
+        <h2 class="section-title"><i class="fas fa-apple-alt"></i> विटामिन, मिनरल्स और इम्युनिटी बूस्टर</h2>
+        <p>बच्चों से लेकर बुजुर्गों तक, कमजोरी दूर करने और ताकत के लिए असली सप्लीमेंट्स।</p>
+        <div class="medicine-grid">
+            <div class="card"><h3>मल्टीविटामिन (A to Z)</h3><p>थकान, भूख न लगना, शरीर की ताकत</p><span class="badge">सस्ता विकल्प</span></div>
+            <div class="card"><h3>विटामिन D3 60K IU</h3><p>हड्डियों का दर्द, कमजोरी दूर</p><span class="badge">साप्ताहिक</span></div>
+            <div class="card"><h3>कैल्शियम + विटामिन D3</h3><p>जोड़ों में दर्द, फ्रैक्चर से बचाव</p><span class="badge">बुजुर्ग जरूर लें</span></div>
+            <div class="card"><h3>विटामिन B12 (मिथाइलकोबालामिन)</h3><p>नसों की कमजोरी, एनीमिया</p><span class="badge">सब्लिंगुअल</span></div>
+            <div class="card"><h3>ओमेगा-3 फैटी एसिड</h3><p>दिल, दिमाग और आंखों के लिए</p><span class="badge">सॉफ्टजेल</span></div>
+            <div class="card"><h3>जिंक + विटामिन सी</h3><p>बार-बार बुखार, संक्रमण से बचाव</p><span class="badge">इम्युनिटी पावर</span></div>
+        </div>
+    </div>
+
+    <!-- ==================== FIRST AID (village friendly) ==================== -->
+    <div id="firstaid-page" class="page">
+        <h2 class="section-title"><i class="fas fa-band-aid"></i> प्राथमिक उपचार सामग्री (घर पर पट्टी-फ़र्स्ट एड)</h2>
+        <p>चोट, जलन, कटने पर तुरंत इस्तेमाल। खेत, घर, बच्चों के लिए ज़रूरी किट।</p>
+        <div class="medicine-grid">
+            <div class="card"><h3>एडहेसिव बैंडेज (प्लास्टर)</h3><p>छोटे कट, फफोले के लिए</p><span class="badge">डिब्बा (100 पीस)</span></div>
+            <div class="card"><h3>गॉज रोल और रूई</h3><p>घाव साफ करने, पट्टी करने</p><span class="badge">स्टेराइल पैक</span></div>
+            <div class="card"><h3>सेप्टिल / डेटॉल (एंटीसेप्टिक)</h3><p>कीटाणु मारे, घाव साफ करे</p><span class="badge">लिक्विड बोतल</span></div>
+            <div class="card"><h3>पोविडोन-आयोडीन मरहम</h3><p>जलने या गहरे घाव में इंफेक्शन रोके</p><span class="badge">ट्यूब</span></div>
+            <div class="card"><h3>बर्न क्रीम (सिल्वर सल्फाडायज़ीन)</h3><p>गर्मी से जलने पर तुरंत लगाएं</p><span class="badge">क्रीम</span></div>
+            <div class="card"><h3>इलास्टिक क्रेप बैंडेज</h3><p>मोच या हड्डी में सहारे के लिए</p><span class="badge">लपेटन बैंडेज</span></div>
+        </div>
+    </div>
+
+    <!-- ==================== CONTACT (village friendly - local language + phone) ==================== -->
+    <div id="contact-page" class="page">
+        <h2 class="section-title"><i class="fas fa-address-card"></i> संपर्क करें - आपकी सेवा में</h2>
+        <div class="contact-card">
+            <p><i class="fas fa-store"></i> <strong>प्रधुमान सिंह मेडिकल स्टोर (Pradhuman Singh Medical Store)</strong></p>
+            <p><i class="fas fa-map-marker-alt"></i> <strong>पता (Address):</strong> गाँव + पोस्ट: अम्बा काला, थाना: पिपराही, जिला: शिवहर (बिहार) - पिन कोड 843329</p>
+            <p><i class="fas fa-phone-volume"></i> <strong>मोबाइल:</strong> +91 620 123 4567 | +91 947 238 9101 (हिंदी, भोजपुरी, मैथिली में बात करें)</p>
+            <p><i class="fas fa-clock"></i> <strong>खुलने का समय:</strong> सुबह 8:00 बजे से रात 10:00 बजे तक (रविवार व त्योहार पर भी खुला)</p>
+            <p><i class="fas fa-tractor"></i> <strong>गाँव में डिलीवरी:</strong> अम्बा काला, पिपराही, हरसिंहा, मझौरिया, बेलवा, सोनबरसा सहित 10+ गाँवों में 200 रुपये से अधिक पर मुफ्त डिलीवरी।</p>
+            <hr style="margin: 16px 0;">
+            <p><i class="fas fa-hand-holding-usd"></i> <strong>खास बात:</strong> हमारे पास सरकारी जेनेरिक दवाइयाँ भी उपलब्ध हैं, जो सस्ती और असरदार हैं। डॉक्टर का पर्चा लेकर आएं तो बेहतर सुझाव देंगे।</p>
+            <div style="margin-top: 20px;">
+                <a href="#" data-page="home" class="btn nav-link"><i class="fas fa-home"></i> मुख्य पृष्ठ पर जाएं</a>
+                <a href="tel:+916201234567" class="btn" style="background: #4f8a5e; margin-left: 12px;"><i class="fas fa-phone"></i> अभी कॉल करें</a>
             </div>
         </div>
-
-        <!-- Pain & Relief -->
-        <div id="paincare-page" class="page">
-            <h2 class="section-title"><i class="fas fa-tablets"></i> Pain & Fever Management</h2>
-            <p>Effective relief from headaches, body pain, arthritis, and post-surgical discomfort.</p>
-            <div class="medicine-grid">
-                <div class="card"><h3>Paracetamol 500mg</h3><p>Fever & mild pain, safe & trusted.</p><span class="badge-cat">Tablet/Syrup</span></div>
-                <div class="card"><h3>Ibuprofen 400mg</h3><p>NSAID – inflammation, muscle pain.</p><span class="badge-cat">Tablet</span></div>
-                <div class="card"><h3>Diclofenac Sodium</h3><p>Arthritis, dental pain, sprains.</p><span class="badge-cat">Tablet/Gel</span></div>
-                <div class="card"><h3>Naproxen 250mg</h3><p>Longer acting for chronic pain.</p><span class="badge-cat">Tablet</span></div>
-                <div class="card"><h3>Combiflam (Ibu+Paracetamol)</h3><p>Stronger analgesic effect.</p><span class="badge-cat">Strip</span></div>
-                <div class="card"><h3>Tramadol 50mg</h3><p>Moderate to severe pain (Rx required).</p><span class="badge-cat">Capsule</span></div>
-                <div class="card"><h3>Topical Diclofenac Gel</h3><p>Local relief for joints & muscles.</p><span class="badge-cat">Gel 30g</span></div>
-                <div class="card"><h3>Aceclofenac + Serratiopeptidase</h3><p>Post trauma & inflammation control.</p><span class="badge-cat">Tablet</span></div>
-            </div>
+        <div style="margin-top: 1rem; background: #eef3e4; border-radius: 28px; padding: 0.8rem 1rem;">
+            <i class="fas fa-globe"></i> <strong>पहचान:</strong> पिपराही पुलिस स्टेशन के पास, अम्बा काला चौक पर। सभी ग्रामीणों का स्वागत है।
         </div>
+    </div>
+</main>
 
-        <!-- Chronic Care -->
-        <div id="chronic-page" class="page">
-            <h2 class="section-title"><i class="fas fa-heartbeat"></i> Chronic Disease Management</h2>
-            <p>Long-term therapies for diabetes, hypertension, cholesterol, asthma & thyroid care.</p>
-            <div class="medicine-grid">
-                <div class="card"><h3>Metformin 500mg / 1000mg</h3><p>First-line for type 2 diabetes.</p><span class="badge-cat">Tablet SR</span></div>
-                <div class="card"><h3>Glimipiride + Metformin</h3><p>Combination for better glycemic control.</p><span class="badge-cat">Tablet</span></div>
-                <div class="card"><h3>Telmisartan 40mg</h3><p>Hypertension & heart failure prevention.</p><span class="badge-cat">Tablet</span></div>
-                <div class="card"><h3>Amlodipine 5mg</h3><p>Calcium channel blocker, BP control.</p><span class="badge-cat">Tablet</span></div>
-                <div class="card"><h3>Atorvastatin 10/20mg</h3><p>Lowers cholesterol & triglycerides.</p><span class="badge-cat">Tablet</span></div>
-                <div class="card"><h3>Insulin Vials (Human Mixtard)</h3><p>Short & intermediate acting insulin.</p><span class="badge-cat">Vial/Pen</span></div>
-                <div class="card"><h3>Salbutamol Inhaler</h3><p>Relieves asthma & COPD.</p><span class="badge-cat">Inhaler</span></div>
-                <div class="card"><h3>Thyroxine 50mcg/100mcg</h3><p>Thyroid hormone replacement.</p><span class="badge-cat">Tablet</span></div>
-            </div>
-        </div>
-
-        <!-- Vitamins -->
-        <div id="vitamins-page" class="page">
-            <h2 class="section-title"><i class="fas fa-apple-alt"></i> Vitamins, Minerals & Immunity Boosters</h2>
-            <p>Daily wellness, prenatal care, geriatric support, and sports nutrition.</p>
-            <div class="medicine-grid">
-                <div class="card"><h3>Multivitamin (A to Z)</h3><p>Complete daily energy support.</p><span class="badge-cat">Tablet</span></div>
-                <div class="card"><h3>Vitamin D3 60K IU</h3><p>Weekly bone & immunity formula.</p><span class="badge-cat">Capsule</span></div>
-                <div class="card"><h3>Calcium + Vitamin D3</h3><p>Osteoporosis & bone health.</p><span class="badge-cat">Tablet</span></div>
-                <div class="card"><h3>Vitamin B12 (Methylcobalamin)</h3><p>Nerve health, anemia support.</p><span class="badge-cat">Tablet</span></div>
-                <div class="card"><h3>Omega-3 Fatty Acids</h3><p>Heart & joint, triglyceride lowering.</p><span class="badge-cat">Softgel</span></div>
-                <div class="card"><h3>Zinc + Vitamin C</h3><p>Immunity & wound healing.</p><span class="badge-cat">Effervescent</span></div>
-                <div class="card"><h3>Folic Acid 5mg</h3><p>Pregnancy & megaloblastic anemia.</p><span class="badge-cat">Tablet</span></div>
-                <div class="card"><h3>Protein Powders (Whey/Plant)</h3><p>Recovery & muscle support.</p><span class="badge-cat">Supplement</span></div>
-            </div>
-        </div>
-
-        <!-- First Aid -->
-        <div id="firstaid-page" class="page">
-            <h2 class="section-title"><i class="fas fa-band-aid"></i> First Aid & Wound Care Essentials</h2>
-            <p>Emergency preparedness: antiseptics, bandages, burn relief, and surgical supplies.</p>
-            <div class="medicine-grid">
-                <div class="card"><h3>Adhesive Bandages (Plasters)</h3><p>Assorted sizes & waterproof.</p><span class="badge-cat">Box 100pcs</span></div>
-                <div class="card"><h3>Gauze Roll & Cotton</h3><p>Sterile & non-sterile dressings.</p><span class="badge-cat">Rolls</span></div>
-                <div class="card"><h3>Antiseptic Liquid (Savlon/Dettol)</h3><p>Disinfect wounds & surfaces.</p><span class="badge-cat">Bottle</span></div>
-                <div class="card"><h3>Povidone-Iodine Ointment</h3><p>Prevents infection in cuts/burns.</p><span class="badge-cat">Tube</span></div>
-                <div class="card"><h3>Burn Cream (Silverex)</h3><p>Cooling & antimicrobial for burns.</p><span class="badge-cat">Cream</span></div>
-                <div class="card"><h3>Crepe Bandage</h3><p>Sprain support & compression.</p><span class="badge-cat">Elastic</span></div>
-                <div class="card"><h3>Triple Antibiotic Ointment</h3><p>Minor cuts & abrasions.</p><span class="badge-cat">Topical</span></div>
-                <div class="card"><h3>First Aid Kit (Portable)</h3><p>Full family emergency kit.</p><span class="badge-cat">Pre-packed</span></div>
-            </div>
-        </div>
-
-        <!-- Contact Page with full address repetition -->
-        <div id="contact-page" class="page">
-            <h2 class="section-title"><i class="fas fa-address-card"></i> Visit or Contact Us</h2>
-            <div class="contact-card">
-                <p style="font-size:1.2rem; margin-bottom: 1rem;"><i class="fas fa-store"></i> <strong>Pradhuman Singh Medical Store</strong></p>
-                <p><i class="fas fa-map-pin"></i> <strong>Complete Address:</strong> Vill+Post: Amba Kala, Police Station: Piprahi, District: Sheohar, Bihar - 843329</p>
-                <p><i class="fas fa-phone-alt"></i> <strong>Phone:</strong> +91 620 123 4567 | +91 947 238 9101</p>
-                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> pradhumanmed@sheoharhealth.in</p>
-                <p><i class="fas fa-clock"></i> <strong>Timings:</strong> 8:00 AM – 10:00 PM (All days, including public holidays)</p>
-                <p><i class="fas fa-truck"></i> <strong>Home Delivery:</strong> Free for orders above ₹200 within Piprahi, Amba Kala & nearby villages.</p>
-                <hr style="margin: 20px 0; background:#bdd6b3;">
-                <p><i class="fas fa-prescription-bottle"></i> <strong>Prescription Required for Antibiotics & Scheduled Drugs.</strong> Our expert pharmacist will assist you with generic alternatives & discount offers.</p>
-                <div style="margin-top: 20px;">
-                    <a href="#" data-page="home" class="btn nav-link" style="background:#1e6f5c;"><i class="fas fa-home"></i> Back to Home</a>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>© 2025 Pradhuman Singh Medical Store | Amba Kala, Piprahi, Sheohar, Bihar (PIN: 843329)</p>
-            <p style="margin-top: 8px;"><i class="fas fa-shield-alt"></i> Your health is our priority — authentic medicines, compassionate care.</p>
-        </div>
-    </footer>
-</div>
+<footer>
+    <div class="container">
+        <p>© 2025 प्रधुमान सिंह मेडिकल स्टोर | ग्राम अम्बा काला, पिपराही, शिवहर (बिहार) 843329</p>
+        <p style="margin-top: 6px;"><i class="fas fa-leaf"></i> सेहत ही सबसे बड़ा धन | गाँव की जरूरत, हमारी प्राथमिकता</p>
+    </div>
+</footer>
 
 <script>
-    // ----------------------- RANDOM BACKGROUND IMAGE (medical / pharmacy related) -----------------------
-    const bgImages = [
-        "https://images.pexels.com/photos/4386467/medical-medicine-pharmacy-pills.jpg?auto=compress&cs=tinysrgb&w=1600",
-        "https://images.pexels.com/photos/3683043/pharmacist-preparing-medication.jpg?auto=compress&cs=tinysrgb&w=1600",
-        "https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        "https://images.pexels.com/photos/139398/thermometer-pills-pharmacy-doctor-139398.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        "https://images.pexels.com/photos/2280545/medicine-drugs-pills-pharmacy.jpg?auto=compress&cs=tinysrgb&w=1600",
-        "https://images.pexels.com/photos/4033339/health-stethoscope-medical-equipment-medicine.jpg?auto=compress&cs=tinysrgb&w=1600",
-        "https://images.pexels.com/photos/7089399/medical-mask-pills-dispenser-bottle-pharmacy.jpg?auto=compress&cs=tinysrgb&w=1600"
+    // Random background images (village + medical theme - Indian pharmacy context)
+    const bgArray = [
+        "https://images.pexels.com/photos/7293892/indian-village-pharmacy-ayushman.jpg?auto=compress&cs=tinysrgb&w=1400",
+        "https://images.pexels.com/photos/7303335/medical-store-village-india.jpg?auto=compress&cs=tinysrgb&w=1400",
+        "https://images.pexels.com/photos/4386456/medicine-bottles-on-shelf-pharmacy.jpg?auto=compress&cs=tinysrgb&w=1400",
+        "https://images.pexels.com/photos/4033339/health-stethoscope-india-rural.jpg?auto=compress&cs=tinysrgb&w=1400",
+        "https://images.pexels.com/photos/3683043/pharmacist-preparing-medicine-village.jpg?auto=compress&cs=tinysrgb&w=1400"
     ];
-
-    function setRandomBackground() {
-        const randomIndex = Math.floor(Math.random() * bgImages.length);
-        const selectedUrl = bgImages[randomIndex];
+    function setRandomBg() {
+        const idx = Math.floor(Math.random() * bgArray.length);
         const bgDiv = document.getElementById('randomBg');
         if (bgDiv) {
-            bgDiv.style.backgroundImage = `url('${selectedUrl}')`;
+            bgDiv.style.backgroundImage = `url('${bgArray[idx]}')`;
             bgDiv.style.backgroundSize = "cover";
-            bgDiv.style.backgroundPosition = "center 30%";
         }
     }
-    setRandomBackground();
+    setRandomBg();
 
-    // ----------------------- PAGE NAVIGATION (6-7 pages with full medicine listing) -----------------------
-    const pages = {
+    // page routing (6-7 pages)
+    const pageMap = {
         home: 'home-page',
         antibiotics: 'antibiotics-page',
         paincare: 'paincare-page',
@@ -494,63 +447,33 @@
         firstaid: 'firstaid-page',
         contact: 'contact-page'
     };
-
     function showPage(pageId) {
-        // Hide all pages
-        Object.values(pages).forEach(id => {
+        Object.values(pageMap).forEach(id => {
             const el = document.getElementById(id);
             if (el) el.classList.remove('active-page');
         });
-        const activeEl = document.getElementById(pageId);
-        if (activeEl) activeEl.classList.add('active-page');
-
-        // Update active class on nav links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.remove('active');
-            const linkPage = link.getAttribute('data-page');
-            if (linkPage && pages[linkPage] === pageId) {
-                link.classList.add('active');
-            }
-        });
+        document.getElementById(pageId).classList.add('active-page');
+        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+        const activeKey = Object.keys(pageMap).find(key => pageMap[key] === pageId);
+        if (activeKey) {
+            const activeNav = document.querySelector(`.nav-link[data-page="${activeKey}"]`);
+            if (activeNav) activeNav.classList.add('active');
+        }
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-
-    function bindNav() {
-        const allNav = document.querySelectorAll('.nav-link');
-        allNav.forEach(link => {
+    function bindEvents() {
+        document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                const pageKey = link.getAttribute('data-page');
-                if (pageKey && pages[pageKey]) {
-                    showPage(pages[pageKey]);
-                    // optional: update URL hash for better UX
-                    window.location.hash = pageKey;
-                } else {
-                    showPage('home-page');
-                }
+                const pg = link.getAttribute('data-page');
+                if (pg && pageMap[pg]) showPage(pageMap[pg]);
+                else showPage('home-page');
             });
         });
     }
-
-    // hash change listener for back/forward
-    window.addEventListener('hashchange', () => {
-        let hash = window.location.hash.substring(1);
-        if (hash && pages[hash]) {
-            showPage(pages[hash]);
-        } else {
-            showPage('home-page');
-        }
-    });
-
-    // initial load
-    const startHash = window.location.hash.substring(1);
-    if (startHash && pages[startHash]) {
-        showPage(pages[startHash]);
-    } else {
-        showPage('home-page');
-    }
-
-    bindNav();
+    // initial active
+    bindEvents();
+    showPage('home-page');
 </script>
 </body>
 </html>
