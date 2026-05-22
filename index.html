@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Pradhuman Singh Medical Store | Village Pharmacy - Amba Kala, Sheohar</title>
+    <title>Pradhuman Singh Medical Store | ग्राम अम्बा काला, शिवहर</title>
     <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -22,7 +22,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Warm, earthy village-friendly design */
+        /* FIXED BACKGROUND with med.jpeg (your local file) */
         .bg-overlay {
             position: fixed;
             top: 0;
@@ -30,10 +30,12 @@
             width: 100%;
             height: 100%;
             z-index: -2;
+            background-image: url('med.jpeg');   /* YOUR CUSTOM BACKGROUND IMAGE */
             background-size: cover;
             background-position: center 30%;
             background-repeat: no-repeat;
         }
+        /* soft overlay to ensure text readability */
         .bg-overlay::after {
             content: "";
             position: absolute;
@@ -41,7 +43,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(245, 250, 240, 0.88);
+            background: rgba(240, 248, 235, 0.88);
             z-index: -1;
         }
 
@@ -51,7 +53,7 @@
             padding: 0 20px;
         }
 
-        /* header - warm and welcoming */
+        /* header - warm village style */
         header {
             background: linear-gradient(135deg, #1b4d3e, #2c6e58);
             color: white;
@@ -99,7 +101,7 @@
             color: #fff0b5;
         }
 
-        /* Address banner - village friendly */
+        /* Address banner - village details */
         .address-bar {
             background: #2d5a48;
             color: #fef7e0;
@@ -192,7 +194,7 @@
 
         .medicine-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 1.5rem;
             margin: 1.5rem 0;
         }
@@ -252,8 +254,8 @@
 </head>
 <body>
 
-<!-- dynamic background that changes randomly for village vibe (nature + pharmacy) -->
-<div class="bg-overlay" id="randomBg"></div>
+<!-- Fixed background with your med.jpeg file -->
+<div class="bg-overlay" id="bgOverlay"></div>
 
 <header>
     <div class="container header-flex">
@@ -273,7 +275,7 @@
     </div>
 </header>
 
-<!-- Address strip with full village details (easy to read) -->
+<!-- Address strip with full village details -->
 <div class="address-bar">
     <div class="container">
         <div class="address-detail">
@@ -286,10 +288,10 @@
 </div>
 
 <main class="container">
-    <!-- ==================== HOME (village friendly) ==================== -->
+    <!-- ==================== HOME PAGE (village friendly) ==================== -->
     <div id="home-page" class="page active-page">
         <div class="hero">
-            <h2><i class="fas fa-hand-holding-heart"></i> स्वागत है आपका | पटना-दिल्ली नहीं, अपने गाँव की दुकान</h2>
+            <h2><i class="fas fa-hand-holding-heart"></i> स्वागत है आपका | अपने गाँव की दुकान</h2>
             <p>✅ असली दवा | ✅ गाँव में होम डिलीवरी | ✅ सस्ती जेनेरिक दवाइयाँ | ✅ सुबह 8 से रात 10 बजे तक</p>
             <a href="#" data-page="contact" class="btn nav-link"><i class="fas fa-phone-alt"></i> संपर्क करें / फ़ोन करें</a>
         </div>
@@ -328,6 +330,8 @@
             <div class="card"><h3>डॉक्सीसाइक्लिन 100mg</h3><p>मुंहासे, मलेरिया बचाव, लाइम रोग</p><span class="badge">कैप्सूल</span></div>
             <div class="card"><h3>सेफिक्साइम 200mg</h3><p>मूत्र, कान-नाक संक्रमण में कारगर</p><span class="badge">टैबलेट</span></div>
             <div class="card"><h3>मेट्रोनिडाजोल 400mg</h3><p>पेचिश, दस्त, मुंह के अल्सर</p><span class="badge">गोली</span></div>
+            <div class="card"><h3>क्लिंडामाइसिन 300mg</h3><p>गहरे संक्रमण, दांत के फोड़े</p><span class="badge">कैप्सूल</span></div>
+            <div class="card"><h3>नाइट्रोफ्यूरेंटोइन</h3><p>यूरिन इन्फेक्शन (यूटीआई) में विशेष</p><span class="badge">कैप्सूल</span></div>
         </div>
     </div>
 
@@ -342,10 +346,12 @@
             <div class="card"><h3>नाप्रोक्सन 250mg</h3><p>लंबे समय तक असरदार</p><span class="badge">टैबलेट</span></div>
             <div class="card"><h3>कॉम्बिफ्लैम</h3><p>इबुप्रोफेन+पैरासिटामोल, शक्तिशाली</p><span class="badge">पट्टी</span></div>
             <div class="card"><h3>ट्रामाडोल 50mg</h3><p>गंभीर दर्द, डॉक्टर सलाह अनिवार्य</p><span class="badge">कैप्सूल</span></div>
+            <div class="card"><h3>एसिटामिनोफेन सिरप</h3><p>बच्चों के बुखार के लिए</p><span class="badge">पेडियाट्रिक</span></div>
+            <div class="card"><h3>एसेक्लोफेनाक + सेराटियोपेप्टिडेज</h3><p>चोट व सर्जरी के बाद सूजन कम करे</p><span class="badge">टैबलेट</span></div>
         </div>
     </div>
 
-    <!-- ==================== CHRONIC (Diabetes, BP) ==================== -->
+    <!-- ==================== CHRONIC (Diabetes, BP, Thyroid) ==================== -->
     <div id="chronic-page" class="page">
         <h2 class="section-title"><i class="fas fa-heartbeat"></i> पुरानी बीमारियों की दवा (पूरी सुविधा)</h2>
         <p>डायबिटीज, ब्लड प्रेशर, कोलेस्ट्रॉल, थायराइड और दमा की सभी दवाएं नियमित रूप से उपलब्ध।</p>
@@ -361,7 +367,7 @@
         </div>
     </div>
 
-    <!-- ==================== VITAMINS page (village wellness) ==================== -->
+    <!-- ==================== VITAMINS page ==================== -->
     <div id="vitamins-page" class="page">
         <h2 class="section-title"><i class="fas fa-apple-alt"></i> विटामिन, मिनरल्स और इम्युनिटी बूस्टर</h2>
         <p>बच्चों से लेकर बुजुर्गों तक, कमजोरी दूर करने और ताकत के लिए असली सप्लीमेंट्स।</p>
@@ -372,10 +378,12 @@
             <div class="card"><h3>विटामिन B12 (मिथाइलकोबालामिन)</h3><p>नसों की कमजोरी, एनीमिया</p><span class="badge">सब्लिंगुअल</span></div>
             <div class="card"><h3>ओमेगा-3 फैटी एसिड</h3><p>दिल, दिमाग और आंखों के लिए</p><span class="badge">सॉफ्टजेल</span></div>
             <div class="card"><h3>जिंक + विटामिन सी</h3><p>बार-बार बुखार, संक्रमण से बचाव</p><span class="badge">इम्युनिटी पावर</span></div>
+            <div class="card"><h3>फोलिक एसिड 5mg</h3><p>प्रेगनेंसी में जरूरी, खून की कमी</p><span class="badge">टैबलेट</span></div>
+            <div class="card"><h3>प्रोटीन पाउडर (व्हे/प्लांट)</h3><p>मांसपेशियों की ताकत, रिकवरी</p><span class="badge">सप्लीमेंट</span></div>
         </div>
     </div>
 
-    <!-- ==================== FIRST AID (village friendly) ==================== -->
+    <!-- ==================== FIRST AID ==================== -->
     <div id="firstaid-page" class="page">
         <h2 class="section-title"><i class="fas fa-band-aid"></i> प्राथमिक उपचार सामग्री (घर पर पट्टी-फ़र्स्ट एड)</h2>
         <p>चोट, जलन, कटने पर तुरंत इस्तेमाल। खेत, घर, बच्चों के लिए ज़रूरी किट।</p>
@@ -386,10 +394,12 @@
             <div class="card"><h3>पोविडोन-आयोडीन मरहम</h3><p>जलने या गहरे घाव में इंफेक्शन रोके</p><span class="badge">ट्यूब</span></div>
             <div class="card"><h3>बर्न क्रीम (सिल्वर सल्फाडायज़ीन)</h3><p>गर्मी से जलने पर तुरंत लगाएं</p><span class="badge">क्रीम</span></div>
             <div class="card"><h3>इलास्टिक क्रेप बैंडेज</h3><p>मोच या हड्डी में सहारे के लिए</p><span class="badge">लपेटन बैंडेज</span></div>
+            <div class="card"><h3>ट्रिपल एंटीबायोटिक मरहम</h3><p>घाव में संक्रमण से बचाव</p><span class="badge">ट्यूब</span></div>
+            <div class="card"><h3>फर्स्ट एड किट (पोर्टेबल)</h3><p>पूरे परिवार के लिए तैयार किट</p><span class="badge">होम किट</span></div>
         </div>
     </div>
 
-    <!-- ==================== CONTACT (village friendly - local language + phone) ==================== -->
+    <!-- ==================== CONTACT (village friendly) ==================== -->
     <div id="contact-page" class="page">
         <h2 class="section-title"><i class="fas fa-address-card"></i> संपर्क करें - आपकी सेवा में</h2>
         <div class="contact-card">
@@ -419,25 +429,8 @@
 </footer>
 
 <script>
-    // Random background images (village + medical theme - Indian pharmacy context)
-    const bgArray = [
-        "https://images.pexels.com/photos/7293892/indian-village-pharmacy-ayushman.jpg?auto=compress&cs=tinysrgb&w=1400",
-        "https://images.pexels.com/photos/7303335/medical-store-village-india.jpg?auto=compress&cs=tinysrgb&w=1400",
-        "https://images.pexels.com/photos/4386456/medicine-bottles-on-shelf-pharmacy.jpg?auto=compress&cs=tinysrgb&w=1400",
-        "https://images.pexels.com/photos/4033339/health-stethoscope-india-rural.jpg?auto=compress&cs=tinysrgb&w=1400",
-        "https://images.pexels.com/photos/3683043/pharmacist-preparing-medicine-village.jpg?auto=compress&cs=tinysrgb&w=1400"
-    ];
-    function setRandomBg() {
-        const idx = Math.floor(Math.random() * bgArray.length);
-        const bgDiv = document.getElementById('randomBg');
-        if (bgDiv) {
-            bgDiv.style.backgroundImage = `url('${bgArray[idx]}')`;
-            bgDiv.style.backgroundSize = "cover";
-        }
-    }
-    setRandomBg();
-
-    // page routing (6-7 pages)
+    // Ensure med.jpeg background is applied (already in CSS, but ensure fallback)
+    // Additionally, page routing logic
     const pageMap = {
         home: 'home-page',
         antibiotics: 'antibiotics-page',
@@ -471,7 +464,6 @@
             });
         });
     }
-    // initial active
     bindEvents();
     showPage('home-page');
 </script>
