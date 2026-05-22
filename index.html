@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Pradhuman Singh Medical Store | Trusted Medicine in Sheohar, Bihar</title>
-    <!-- Google Fonts & simple CSS reset -->
+    <title>Pradhuman Singh Medical Store | Sheohar, Bihar</title>
+    <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -16,28 +16,58 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f4f9f4;
+            background: #eef3ec;
             color: #1e2a2e;
             line-height: 1.5;
             scroll-behavior: smooth;
+            position: relative;
         }
 
-        /* container */
+        /* RANDOM BACKGROUND OVERLAY – dynamic via JS */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: opacity 0.6s ease;
+        }
+        .bg-overlay::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.82);
+            z-index: -1;
+        }
+        /* subtle grain texture for better readability */
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* header / navbar */
+        /* header */
         header {
-            background: linear-gradient(135deg, #0b3b2f 0%, #1a5d4c 100%);
+            background: linear-gradient(135deg, #0a3b2fcc, #145c48cc);
+            backdrop-filter: blur(2px);
             color: white;
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
         }
 
         .header-flex {
@@ -52,11 +82,12 @@
             font-size: 1.7rem;
             font-weight: 700;
             letter-spacing: -0.3px;
+            text-shadow: 1px 1px 0 #1e4a3a;
         }
 
         .logo p {
             font-size: 0.8rem;
-            opacity: 0.85;
+            opacity: 0.9;
             margin-top: 4px;
         }
 
@@ -69,25 +100,25 @@
         .nav-links a {
             color: white;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: 0.2s;
-            font-size: 1rem;
+            font-size: 0.95rem;
             padding: 6px 0;
             border-bottom: 2px solid transparent;
         }
 
         .nav-links a:hover, .nav-links a.active {
             border-bottom-color: #f7c35c;
-            color: #f7e05e;
+            color: #ffe6a3;
         }
 
-        /* address banner */
+        /* address bar with slight background */
         .address-bar {
-            background-color: #eef2e6;
+            background: #1e3629e0;
+            backdrop-filter: blur(4px);
             padding: 10px 0;
-            border-bottom: 1px solid #d0dfc0;
-            font-size: 0.9rem;
-            color: #2c5a2e;
+            border-bottom: 1px solid #cbdcc2;
+            color: #fef9e6;
         }
 
         .address-bar .container {
@@ -100,28 +131,27 @@
 
         .address-detail i {
             margin-right: 6px;
-            color: #1e6f5c;
+            color: #ffdf8c;
         }
 
         .pincode-badge {
-            background: #1e6f5c;
-            color: white;
-            padding: 4px 12px;
+            background: #e0b34b;
+            color: #1e3a2f;
+            padding: 4px 14px;
             border-radius: 40px;
             font-size: 0.8rem;
-            font-weight: 600;
+            font-weight: 700;
         }
 
-        /* main content */
         main {
             min-height: 70vh;
-            padding: 2.5rem 0;
+            padding: 2rem 0;
         }
 
-        /* page container (simulated routing with id visibility) */
+        /* pages */
         .page {
             display: none;
-            animation: fadeIn 0.3s ease;
+            animation: fadeIn 0.35s ease;
         }
 
         .active-page {
@@ -133,13 +163,16 @@
             to { opacity: 1; transform: translateY(0);}
         }
 
-        /* hero section */
+        /* cards & ui */
         .hero {
-            background: linear-gradient(112deg, #d9e6cf, #cbe5d4);
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(3px);
             border-radius: 32px;
             padding: 2.5rem 2rem;
             margin-bottom: 2rem;
             text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid rgba(120, 150, 100, 0.3);
         }
 
         .hero h2 {
@@ -151,14 +184,15 @@
             display: inline-block;
             background-color: #1e6f5c;
             color: white;
-            padding: 10px 24px;
+            padding: 10px 28px;
             border-radius: 40px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: 0.2s;
             margin-top: 1rem;
             border: none;
             cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .btn:hover {
@@ -166,33 +200,37 @@
             transform: scale(1.02);
         }
 
-        /* medicine grid style */
         .section-title {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
             border-left: 6px solid #1e6f5c;
             padding-left: 18px;
+            background: rgba(255, 255, 255, 0.6);
+            display: inline-block;
+            border-radius: 0 20px 20px 0;
         }
 
         .medicine-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
             gap: 1.8rem;
             margin-top: 1rem;
         }
 
         .card {
-            background: white;
-            border-radius: 24px;
-            padding: 1.2rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 28px;
+            padding: 1.3rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid #e2f0e2;
+            border: 1px solid #dbecdb;
         }
 
         .card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 16px 28px rgba(0,0,0,0.08);
+            box-shadow: 0 18px 30px rgba(0,0,0,0.12);
+            background: rgba(255, 255, 255, 0.97);
         }
 
         .card i {
@@ -202,44 +240,38 @@
         }
 
         .card h3 {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             margin-bottom: 8px;
-        }
-
-        .card p {
-            color: #3a5e4c;
-            font-size: 0.9rem;
         }
 
         .badge-cat {
             display: inline-block;
-            background: #deefe6;
+            background: #c8dfcf;
             border-radius: 20px;
             padding: 4px 12px;
             font-size: 0.7rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-top: 12px;
         }
 
-        /* contact & footer */
         .contact-card {
-            background: white;
-            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(3px);
+            border-radius: 32px;
             padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            border: 1px solid #cbe0cf;
+            border: 1px solid #c2dbbe;
         }
 
         footer {
-            background: #0b2f26;
-            color: #cdede3;
+            background: #0b2f26cc;
+            backdrop-filter: blur(5px);
+            color: #edf7e7;
             padding: 2rem 0;
             margin-top: 3rem;
             text-align: center;
             font-size: 0.85rem;
         }
 
-        /* responsive */
         @media (max-width: 780px) {
             .header-flex {
                 flex-direction: column;
@@ -256,179 +288,203 @@
 </head>
 <body>
 
-<header>
-    <div class="container header-flex">
-        <div class="logo">
-            <h1><i class="fas fa-hospital-user"></i> Pradhuman Singh Medical Store</h1>
-            <p>स्वास्थ्य सेवा आपके द्वार | Quality Medicines since 1996</p>
-        </div>
-        <div class="nav-links">
-            <a href="#" data-page="home" class="nav-link active">🏠 Home</a>
-            <a href="#" data-page="antibiotics" class="nav-link">💊 Antibiotics</a>
-            <a href="#" data-page="paincare" class="nav-link">🩹 Pain & Relief</a>
-            <a href="#" data-page="chronic" class="nav-link">❤️ Chronic Care</a>
-            <a href="#" data-page="vitamins" class="nav-link">🍊 Vitamins</a>
-            <a href="#" data-page="firstaid" class="nav-link">🚑 First Aid</a>
-            <a href="#" data-page="contact" class="nav-link">📞 Contact</a>
-        </div>
-    </div>
-</header>
+<!-- Random background overlay (dynamic) -->
+<div class="bg-overlay" id="randomBg"></div>
 
-<!-- address strip -->
-<div class="address-bar">
-    <div class="container">
-        <div class="address-detail">
-            <i class="fas fa-map-marker-alt"></i> Vill+Post: Amba Kala, PS: Piprahi, District: Sheohar, Bihar - <strong>843329</strong>
+<div class="content-wrapper">
+    <header>
+        <div class="container header-flex">
+            <div class="logo">
+                <h1><i class="fas fa-hospital-user"></i> Pradhuman Singh Medical Store</h1>
+                <p>स्वास्थ्य सेवा आपके द्वार | Quality Medicines since 1996</p>
+            </div>
+            <div class="nav-links">
+                <a href="#" data-page="home" class="nav-link active">🏠 Home</a>
+                <a href="#" data-page="antibiotics" class="nav-link">💊 Antibiotics</a>
+                <a href="#" data-page="paincare" class="nav-link">🩹 Pain & Relief</a>
+                <a href="#" data-page="chronic" class="nav-link">❤️ Chronic Care</a>
+                <a href="#" data-page="vitamins" class="nav-link">🍊 Vitamins</a>
+                <a href="#" data-page="firstaid" class="nav-link">🚑 First Aid</a>
+                <a href="#" data-page="contact" class="nav-link">📞 Contact</a>
+            </div>
         </div>
-        <div class="pincode-badge">
-            <i class="fas fa-location-dot"></i> PIN: 843329 | Bihar
+    </header>
+
+    <!-- Address strip with full location -->
+    <div class="address-bar">
+        <div class="container">
+            <div class="address-detail">
+                <i class="fas fa-map-marker-alt"></i> Vill+Post: Amba Kala, PS: Piprahi, District: Sheohar, Bihar - <strong>843329</strong>
+            </div>
+            <div class="pincode-badge">
+                <i class="fas fa-location-dot"></i> PIN: 843329 | Bihar
+            </div>
         </div>
     </div>
+
+    <main class="container">
+        <!-- ==================== HOME PAGE ==================== -->
+        <div id="home-page" class="page active-page">
+            <div class="hero">
+                <h2><i class="fas fa-hand-holding-medical"></i> Your Trusted Neighbourhood Pharmacy</h2>
+                <p style="font-size:1.1rem; margin-top:12px;">Authentic medicines | Prescription & OTC | Fast service in Amba Kala, Sheohar</p>
+                <a href="#" data-page="contact" class="btn nav-link">📞 Get in touch</a>
+            </div>
+            <div>
+                <h2 class="section-title">🌟 Why Choose Us?</h2>
+                <div class="medicine-grid">
+                    <div class="card"><i class="fas fa-check-circle"></i><h3>100% Genuine</h3><p>We stock only licensed, authentic medicines from trusted brands.</p></div>
+                    <div class="card"><i class="fas fa-truck"></i><h3>Free Delivery*</h3><p>In & around Piprahi & Sheohar (conditions apply).</p></div>
+                    <div class="card"><i class="fas fa-clock"></i><h3>Open Daily</h3><p>8:00 AM – 10:00 PM, even Sundays & holidays.</p></div>
+                    <div class="card"><i class="fas fa-stethoscope"></i><h3>Expert Guidance</h3><p>Qualified pharmacists for prescription support.</p></div>
+                </div>
+            </div>
+            <div style="margin-top: 2.5rem;">
+                <h2 class="section-title">📌 All Medicine Categories Available</h2>
+                <div class="medicine-grid">
+                    <div class="card"><i class="fas fa-capsules"></i><h3>Antibiotics</h3><p>Amoxicillin, Azithromycin, Ciprofloxacin & more.</p><span class="badge-cat">20+ variants</span></div>
+                    <div class="card"><i class="fas fa-tablets"></i><h3>Pain Relief</h3><p>Paracetamol, Ibuprofen, Diclofenac, Opioid alternatives.</p><span class="badge-cat">15+ options</span></div>
+                    <div class="card"><i class="fas fa-heartbeat"></i><h3>Chronic Care</h3><p>Diabetes (Metformin, Insulin), BP, Cholesterol, Asthma.</p><span class="badge-cat">complete range</span></div>
+                    <div class="card"><i class="fas fa-apple-alt"></i><h3>Vitamins & Supplements</h3><p>Multivitamins, Calcium, Vitamin D, B12, Omega-3.</p><span class="badge-cat">30+ brands</span></div>
+                    <div class="card"><i class="fas fa-band-aid"></i><h3>First Aid & Wound Care</h3><p>Bandages, antiseptics, gauze, burn creams, plasters.</p><span class="badge-cat">essential kit</span></div>
+                    <div class="card"><i class="fas fa-lungs"></i><h3>Respiratory</h3><p>Inhalers, cough syrups, nebulizers, allergy meds.</p><span class="badge-cat">full stock</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== CATEGORY PAGES ==================== -->
+        <!-- Antibiotics -->
+        <div id="antibiotics-page" class="page">
+            <h2 class="section-title"><i class="fas fa-capsules"></i> Antibiotics & Anti-infectives</h2>
+            <p style="background: rgba(255,255,240,0.7); padding: 0.5rem 1rem; border-radius: 60px; display: inline-block;">Complete range of prescription antibiotics and broad-spectrum medicines.</p>
+            <div class="medicine-grid" style="margin-top: 30px;">
+                <div class="card"><h3>Amoxicillin 500mg</h3><p>Penicillin group – bacterial infections.</p><span class="badge-cat">Capsule</span></div>
+                <div class="card"><h3>Azithromycin 500mg</h3><p>Respiratory & skin infections, typhoid.</p><span class="badge-cat">Tablet</span></div>
+                <div class="card"><h3>Ciprofloxacin 500mg</h3><p>UTI, gastrointestinal infections.</p><span class="badge-cat">Tablet</span></div>
+                <div class="card"><h3>Doxycycline 100mg</h3><p>Acne, Lyme disease, malaria prophylaxis.</p><span class="badge-cat">Capsule</span></div>
+                <div class="card"><h3>Cefixime 200mg</h3><p>Third-gen cephalosporin, broad coverage.</p><span class="badge-cat">Tablet</span></div>
+                <div class="card"><h3>Clindamycin 300mg</h3><p>Anaerobic & staphylococcal infections.</p><span class="badge-cat">Capsule</span></div>
+                <div class="card"><h3>Nitrofurantoin</h3><p>Specialized for urinary tract infection.</p><span class="badge-cat">CR form</span></div>
+                <div class="card"><h3>Metronidazole 400mg</h3><p>Bacterial vaginosis, amoebiasis, dental.</p><span class="badge-cat">Tablet</span></div>
+            </div>
+        </div>
+
+        <!-- Pain & Relief -->
+        <div id="paincare-page" class="page">
+            <h2 class="section-title"><i class="fas fa-tablets"></i> Pain & Fever Management</h2>
+            <p>Effective relief from headaches, body pain, arthritis, and post-surgical discomfort.</p>
+            <div class="medicine-grid">
+                <div class="card"><h3>Paracetamol 500mg</h3><p>Fever & mild pain, safe & trusted.</p><span class="badge-cat">Tablet/Syrup</span></div>
+                <div class="card"><h3>Ibuprofen 400mg</h3><p>NSAID – inflammation, muscle pain.</p><span class="badge-cat">Tablet</span></div>
+                <div class="card"><h3>Diclofenac Sodium</h3><p>Arthritis, dental pain, sprains.</p><span class="badge-cat">Tablet/Gel</span></div>
+                <div class="card"><h3>Naproxen 250mg</h3><p>Longer acting for chronic pain.</p><span class="badge-cat">Tablet</span></div>
+                <div class="card"><h3>Combiflam (Ibu+Paracetamol)</h3><p>Stronger analgesic effect.</p><span class="badge-cat">Strip</span></div>
+                <div class="card"><h3>Tramadol 50mg</h3><p>Moderate to severe pain (Rx required).</p><span class="badge-cat">Capsule</span></div>
+                <div class="card"><h3>Topical Diclofenac Gel</h3><p>Local relief for joints & muscles.</p><span class="badge-cat">Gel 30g</span></div>
+                <div class="card"><h3>Aceclofenac + Serratiopeptidase</h3><p>Post trauma & inflammation control.</p><span class="badge-cat">Tablet</span></div>
+            </div>
+        </div>
+
+        <!-- Chronic Care -->
+        <div id="chronic-page" class="page">
+            <h2 class="section-title"><i class="fas fa-heartbeat"></i> Chronic Disease Management</h2>
+            <p>Long-term therapies for diabetes, hypertension, cholesterol, asthma & thyroid care.</p>
+            <div class="medicine-grid">
+                <div class="card"><h3>Metformin 500mg / 1000mg</h3><p>First-line for type 2 diabetes.</p><span class="badge-cat">Tablet SR</span></div>
+                <div class="card"><h3>Glimipiride + Metformin</h3><p>Combination for better glycemic control.</p><span class="badge-cat">Tablet</span></div>
+                <div class="card"><h3>Telmisartan 40mg</h3><p>Hypertension & heart failure prevention.</p><span class="badge-cat">Tablet</span></div>
+                <div class="card"><h3>Amlodipine 5mg</h3><p>Calcium channel blocker, BP control.</p><span class="badge-cat">Tablet</span></div>
+                <div class="card"><h3>Atorvastatin 10/20mg</h3><p>Lowers cholesterol & triglycerides.</p><span class="badge-cat">Tablet</span></div>
+                <div class="card"><h3>Insulin Vials (Human Mixtard)</h3><p>Short & intermediate acting insulin.</p><span class="badge-cat">Vial/Pen</span></div>
+                <div class="card"><h3>Salbutamol Inhaler</h3><p>Relieves asthma & COPD.</p><span class="badge-cat">Inhaler</span></div>
+                <div class="card"><h3>Thyroxine 50mcg/100mcg</h3><p>Thyroid hormone replacement.</p><span class="badge-cat">Tablet</span></div>
+            </div>
+        </div>
+
+        <!-- Vitamins -->
+        <div id="vitamins-page" class="page">
+            <h2 class="section-title"><i class="fas fa-apple-alt"></i> Vitamins, Minerals & Immunity Boosters</h2>
+            <p>Daily wellness, prenatal care, geriatric support, and sports nutrition.</p>
+            <div class="medicine-grid">
+                <div class="card"><h3>Multivitamin (A to Z)</h3><p>Complete daily energy support.</p><span class="badge-cat">Tablet</span></div>
+                <div class="card"><h3>Vitamin D3 60K IU</h3><p>Weekly bone & immunity formula.</p><span class="badge-cat">Capsule</span></div>
+                <div class="card"><h3>Calcium + Vitamin D3</h3><p>Osteoporosis & bone health.</p><span class="badge-cat">Tablet</span></div>
+                <div class="card"><h3>Vitamin B12 (Methylcobalamin)</h3><p>Nerve health, anemia support.</p><span class="badge-cat">Tablet</span></div>
+                <div class="card"><h3>Omega-3 Fatty Acids</h3><p>Heart & joint, triglyceride lowering.</p><span class="badge-cat">Softgel</span></div>
+                <div class="card"><h3>Zinc + Vitamin C</h3><p>Immunity & wound healing.</p><span class="badge-cat">Effervescent</span></div>
+                <div class="card"><h3>Folic Acid 5mg</h3><p>Pregnancy & megaloblastic anemia.</p><span class="badge-cat">Tablet</span></div>
+                <div class="card"><h3>Protein Powders (Whey/Plant)</h3><p>Recovery & muscle support.</p><span class="badge-cat">Supplement</span></div>
+            </div>
+        </div>
+
+        <!-- First Aid -->
+        <div id="firstaid-page" class="page">
+            <h2 class="section-title"><i class="fas fa-band-aid"></i> First Aid & Wound Care Essentials</h2>
+            <p>Emergency preparedness: antiseptics, bandages, burn relief, and surgical supplies.</p>
+            <div class="medicine-grid">
+                <div class="card"><h3>Adhesive Bandages (Plasters)</h3><p>Assorted sizes & waterproof.</p><span class="badge-cat">Box 100pcs</span></div>
+                <div class="card"><h3>Gauze Roll & Cotton</h3><p>Sterile & non-sterile dressings.</p><span class="badge-cat">Rolls</span></div>
+                <div class="card"><h3>Antiseptic Liquid (Savlon/Dettol)</h3><p>Disinfect wounds & surfaces.</p><span class="badge-cat">Bottle</span></div>
+                <div class="card"><h3>Povidone-Iodine Ointment</h3><p>Prevents infection in cuts/burns.</p><span class="badge-cat">Tube</span></div>
+                <div class="card"><h3>Burn Cream (Silverex)</h3><p>Cooling & antimicrobial for burns.</p><span class="badge-cat">Cream</span></div>
+                <div class="card"><h3>Crepe Bandage</h3><p>Sprain support & compression.</p><span class="badge-cat">Elastic</span></div>
+                <div class="card"><h3>Triple Antibiotic Ointment</h3><p>Minor cuts & abrasions.</p><span class="badge-cat">Topical</span></div>
+                <div class="card"><h3>First Aid Kit (Portable)</h3><p>Full family emergency kit.</p><span class="badge-cat">Pre-packed</span></div>
+            </div>
+        </div>
+
+        <!-- Contact Page with full address repetition -->
+        <div id="contact-page" class="page">
+            <h2 class="section-title"><i class="fas fa-address-card"></i> Visit or Contact Us</h2>
+            <div class="contact-card">
+                <p style="font-size:1.2rem; margin-bottom: 1rem;"><i class="fas fa-store"></i> <strong>Pradhuman Singh Medical Store</strong></p>
+                <p><i class="fas fa-map-pin"></i> <strong>Complete Address:</strong> Vill+Post: Amba Kala, Police Station: Piprahi, District: Sheohar, Bihar - 843329</p>
+                <p><i class="fas fa-phone-alt"></i> <strong>Phone:</strong> +91 620 123 4567 | +91 947 238 9101</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> pradhumanmed@sheoharhealth.in</p>
+                <p><i class="fas fa-clock"></i> <strong>Timings:</strong> 8:00 AM – 10:00 PM (All days, including public holidays)</p>
+                <p><i class="fas fa-truck"></i> <strong>Home Delivery:</strong> Free for orders above ₹200 within Piprahi, Amba Kala & nearby villages.</p>
+                <hr style="margin: 20px 0; background:#bdd6b3;">
+                <p><i class="fas fa-prescription-bottle"></i> <strong>Prescription Required for Antibiotics & Scheduled Drugs.</strong> Our expert pharmacist will assist you with generic alternatives & discount offers.</p>
+                <div style="margin-top: 20px;">
+                    <a href="#" data-page="home" class="btn nav-link" style="background:#1e6f5c;"><i class="fas fa-home"></i> Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Pradhuman Singh Medical Store | Amba Kala, Piprahi, Sheohar, Bihar (PIN: 843329)</p>
+            <p style="margin-top: 8px;"><i class="fas fa-shield-alt"></i> Your health is our priority — authentic medicines, compassionate care.</p>
+        </div>
+    </footer>
 </div>
 
-<main class="container">
-    <!-- ==================== HOME PAGE ==================== -->
-    <div id="home-page" class="page active-page">
-        <div class="hero">
-            <h2><i class="fas fa-hand-holding-medical"></i> Your Trusted Neighbourhood Pharmacy</h2>
-            <p style="font-size:1.1rem; margin-top:12px;">Authentic medicines | Prescription & OTC | Fast service in Amba Kala, Sheohar</p>
-            <a href="#" data-page="contact" class="btn nav-link">📞 Get in touch</a>
-        </div>
-        <div>
-            <h2 class="section-title">🌟 Why Choose Us?</h2>
-            <div class="medicine-grid">
-                <div class="card"><i class="fas fa-check-circle"></i><h3>100% Genuine</h3><p>We stock only licensed, authentic medicines from trusted brands.</p></div>
-                <div class="card"><i class="fas fa-truck"></i><h3>Free Delivery*</h3><p>In & around Piprahi & Sheohar (conditions apply).</p></div>
-                <div class="card"><i class="fas fa-clock"></i><h3>Open Daily</h3><p>8:00 AM – 10:00 PM, even Sundays & holidays.</p></div>
-                <div class="card"><i class="fas fa-stethoscope"></i><h3>Expert Guidance</h3><p>Qualified pharmacists for prescription support.</p></div>
-            </div>
-        </div>
-        <div style="margin-top: 2.5rem;">
-            <h2 class="section-title">📌 All Medicine Categories Available</h2>
-            <div class="medicine-grid">
-                <div class="card"><i class="fas fa-capsules"></i><h3>Antibiotics</h3><p>Amoxicillin, Azithromycin, Ciprofloxacin & more.</p><span class="badge-cat">20+ variants</span></div>
-                <div class="card"><i class="fas fa-tablets"></i><h3>Pain Relief</h3><p>Paracetamol, Ibuprofen, Diclofenac, Opioid alternatives.</p><span class="badge-cat">15+ options</span></div>
-                <div class="card"><i class="fas fa-heartbeat"></i><h3>Chronic Care</h3><p>Diabetes (Metformin, Insulin), BP, Cholesterol, Asthma.</p><span class="badge-cat">complete range</span></div>
-                <div class="card"><i class="fas fa-apple-alt"></i><h3>Vitamins & Supplements</h3><p>Multivitamins, Calcium, Vitamin D, B12, Omega-3.</p><span class="badge-cat">30+ brands</span></div>
-                <div class="card"><i class="fas fa-band-aid"></i><h3>First Aid & Wound Care</h3><p>Bandages, antiseptics, gauze, burn creams, plasters.</p><span class="badge-cat">essential kit</span></div>
-                <div class="card"><i class="fas fa-lungs"></i><h3>Respiratory</h3><p>Inhalers, cough syrups, nebulizers, allergy meds.</p><span class="badge-cat">full stock</span></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==================== CATEGORY PAGES (6 distinct medicine pages) ==================== -->
-    <!-- Antibiotics page -->
-    <div id="antibiotics-page" class="page">
-        <h2 class="section-title"><i class="fas fa-capsules"></i> Antibiotics & Anti-infectives</h2>
-        <p>Complete range of prescription antibiotics and broad-spectrum medicines. Always consult your doctor before use.</p>
-        <div class="medicine-grid" style="margin-top: 30px;">
-            <div class="card"><h3>Amoxicillin 500mg</h3><p>Penicillin group – bacterial infections.</p><span class="badge-cat">Capsule</span></div>
-            <div class="card"><h3>Azithromycin 500mg</h3><p>Respiratory & skin infections, typhoid.</p><span class="badge-cat">Tablet</span></div>
-            <div class="card"><h3>Ciprofloxacin 500mg</h3><p>UTI, gastrointestinal infections.</p><span class="badge-cat">Tablet</span></div>
-            <div class="card"><h3>Doxycycline 100mg</h3><p>Acne, Lyme disease, malaria prophylaxis.</p><span class="badge-cat">Capsule</span></div>
-            <div class="card"><h3>Cefixime 200mg</h3><p>Third-gen cephalosporin, broad coverage.</p><span class="badge-cat">Tablet</span></div>
-            <div class="card"><h3>Clindamycin 300mg</h3><p>Anaerobic & staphylococcal infections.</p><span class="badge-cat">Capsule</span></div>
-            <div class="card"><h3>Nitrofurantoin</h3><p>Specialized for urinary tract infection.</p><span class="badge-cat">CR form</span></div>
-            <div class="card"><h3>Metronidazole 400mg</h3><p>Bacterial vaginosis, amoebiasis, dental.</p><span class="badge-cat">Tablet</span></div>
-        </div>
-    </div>
-
-    <!-- Pain & Relief page -->
-    <div id="paincare-page" class="page">
-        <h2 class="section-title"><i class="fas fa-tablets"></i> Pain & Fever Management</h2>
-        <p>Effective relief from headaches, body pain, arthritis, and post-surgical discomfort.</p>
-        <div class="medicine-grid">
-            <div class="card"><h3>Paracetamol 500mg</h3><p>Fever & mild pain, safe & trusted.</p><span class="badge-cat">Tablet/Syrup</span></div>
-            <div class="card"><h3>Ibuprofen 400mg</h3><p>NSAID – inflammation, muscle pain.</p><span class="badge-cat">Tablet</span></div>
-            <div class="card"><h3>Diclofenac Sodium</h3><p>Arthritis, dental pain, sprains.</p><span class="badge-cat">Tablet/Gel</span></div>
-            <div class="card"><h3>Naproxen 250mg</h3><p>Longer acting for chronic pain.</p><span class="badge-cat">Tablet</span></div>
-            <div class="card"><h3>Combiflam (Ibu+Paracetamol)</h3><p>Stronger analgesic effect.</p><span class="badge-cat">Strip</span></div>
-            <div class="card"><h3>Tramadol 50mg</h3><p>Moderate to severe pain (Rx required).</p><span class="badge-cat">Capsule</span></div>
-            <div class="card"><h3>Topical Diclofenac Gel</h3><p>Local relief for joints & muscles.</p><span class="badge-cat">Gel 30g</span></div>
-            <div class="card"><h3>Aceclofenac + Serratiopeptidase</h3><p>Post trauma & inflammation control.</p><span class="badge-cat">Tablet</span></div>
-        </div>
-    </div>
-
-    <!-- Chronic Care (Diabetes, BP, Cardiac) -->
-    <div id="chronic-page" class="page">
-        <h2 class="section-title"><i class="fas fa-heartbeat"></i> Chronic Disease Management</h2>
-        <p>Long-term therapies for diabetes, hypertension, cholesterol, asthma & thyroid care.</p>
-        <div class="medicine-grid">
-            <div class="card"><h3>Metformin 500mg / 1000mg</h3><p>First-line for type 2 diabetes.</p><span class="badge-cat">Tablet SR</span></div>
-            <div class="card"><h3>Glimipiride + Metformin</h3><p>Combination for better glycemic control.</p><span class="badge-cat">Tablet</span></div>
-            <div class="card"><h3>Telmisartan 40mg</h3><p>Hypertension & heart failure prevention.</p><span class="badge-cat">Tablet</span></div>
-            <div class="card"><h3>Amlodipine 5mg</h3><p>Calcium channel blocker, BP control.</p><span class="badge-cat">Tablet</span></div>
-            <div class="card"><h3>Atorvastatin 10/20mg</h3><p>Lowers cholesterol & triglycerides.</p><span class="badge-cat">Tablet</span></div>
-            <div class="card"><h3>Insulin Vials (Human Mixtard)</h3><p>Short & intermediate acting insulin.</p><span class="badge-cat">Vial/Pen</span></div>
-            <div class="card"><h3>Salbutamol Inhaler</h3><p>Relieves asthma & COPD.</p><span class="badge-cat">Inhaler</span></div>
-            <div class="card"><h3>Thyroxine 50mcg/100mcg</h3><p>Thyroid hormone replacement.</p><span class="badge-cat">Tablet</span></div>
-        </div>
-    </div>
-
-    <!-- Vitamins & Supplements -->
-    <div id="vitamins-page" class="page">
-        <h2 class="section-title"><i class="fas fa-apple-alt"></i> Vitamins, Minerals & Immunity Boosters</h2>
-        <p>Daily wellness, prenatal care, geriatric support, and sports nutrition.</p>
-        <div class="medicine-grid">
-            <div class="card"><h3>Multivitamin (A to Z)</h3><p>Complete daily energy support.</p><span class="badge-cat">Tablet</span></div>
-            <div class="card"><h3>Vitamin D3 60K IU</h3><p>Weekly bone & immunity formula.</p><span class="badge-cat">Capsule</span></div>
-            <div class="card"><h3>Calcium + Vitamin D3</h3><p>Osteoporosis & bone health.</p><span class="badge-cat">Tablet</span></div>
-            <div class="card"><h3>Vitamin B12 (Methylcobalamin)</h3><p>Nerve health, anemia support.</p><span class="badge-cat">Tablet</span></div>
-            <div class="card"><h3>Omega-3 Fatty Acids</h3><p>Heart & joint, triglyceride lowering.</p><span class="badge-cat">Softgel</span></div>
-            <div class="card"><h3>Zinc + Vitamin C</h3><p>Immunity & wound healing.</p><span class="badge-cat">Effervescent</span></div>
-            <div class="card"><h3>Folic Acid 5mg</h3><p>Pregnancy & megaloblastic anemia.</p><span class="badge-cat">Tablet</span></div>
-            <div class="card"><h3>Protein Powders (Whey/Plant)</h3><p>Recovery & muscle support.</p><span class="badge-cat">Supplement</span></div>
-        </div>
-    </div>
-
-    <!-- First Aid & Emergency -->
-    <div id="firstaid-page" class="page">
-        <h2 class="section-title"><i class="fas fa-band-aid"></i> First Aid & Wound Care Essentials</h2>
-        <p>Emergency preparedness: antiseptics, bandages, burn relief, and surgical supplies.</p>
-        <div class="medicine-grid">
-            <div class="card"><h3>Adhesive Bandages (Plasters)</h3><p>Assorted sizes & waterproof.</p><span class="badge-cat">Box 100pcs</span></div>
-            <div class="card"><h3>Gauze Roll & Cotton</h3><p>Sterile & non-sterile dressings.</p><span class="badge-cat">Rolls</span></div>
-            <div class="card"><h3>Antiseptic Liquid (Savlon/Dettol)</h3><p>Disinfect wounds & surfaces.</p><span class="badge-cat">Bottle</span></div>
-            <div class="card"><h3>Povidone-Iodine Ointment</h3><p>Prevents infection in cuts/burns.</p><span class="badge-cat">Tube</span></div>
-            <div class="card"><h3>Burn Cream (Silverex)</h3><p>Cooling & antimicrobial for burns.</p><span class="badge-cat">Cream</span></div>
-            <div class="card"><h3>Crepe Bandage</h3><p>Sprain support & compression.</p><span class="badge-cat">Elastic</span></div>
-            <div class="card"><h3>Triple Antibiotic Ointment</h3><p>Minor cuts & abrasions.</p><span class="badge-cat">Topical</span></div>
-            <div class="card"><h3>First Aid Kit (Portable)</h3><p>Full family emergency kit.</p><span class="badge-cat">Pre-packed</span></div>
-        </div>
-    </div>
-
-    <!-- Contact & Store Info page -->
-    <div id="contact-page" class="page">
-        <h2 class="section-title"><i class="fas fa-address-card"></i> Visit or Contact Us</h2>
-        <div class="contact-card">
-            <p style="font-size:1.2rem; margin-bottom: 1rem;"><i class="fas fa-store"></i> <strong>Pradhuman Singh Medical Store</strong></p>
-            <p><i class="fas fa-map-pin"></i> <strong>Complete Address:</strong> Vill+Post: Amba Kala, Police Station: Piprahi, District: Sheohar, Bihar - 843329</p>
-            <p><i class="fas fa-phone-alt"></i> <strong>Phone:</strong> +91 620 123 4567 | +91 947 238 9101</p>
-            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> pradhumanmed@sheoharhealth.in</p>
-            <p><i class="fas fa-clock"></i> <strong>Timings:</strong> 8:00 AM – 10:00 PM (All days, including public holidays)</p>
-            <p><i class="fas fa-truck"></i> <strong>Home Delivery:</strong> Free for orders above ₹200 within Piprahi, Amba Kala & nearby villages.</p>
-            <hr style="margin: 20px 0; background:#cfe3d4;">
-            <p><i class="fas fa-prescription-bottle"></i> <strong>Prescription Required for Antibiotics & Scheduled Drugs.</strong> Our expert pharmacist will assist you with generic alternatives & discount offers. Walk in for health advice & OTC recommendations.</p>
-            <p><i class="fas fa-wheelchair"></i> We are fully accessible and offer senior citizen discounts every Wednesday.</p>
-            <div style="margin-top: 20px;">
-                <a href="#" data-page="home" class="btn nav-link" style="background:#1e6f5c;"><i class="fas fa-home"></i> Back to Home</a>
-            </div>
-        </div>
-        <div style="margin-top: 2rem; background: #e9f3e6; padding: 1.2rem; border-radius: 28px;">
-            <i class="fas fa-location-dot"></i> <strong>Landmark:</strong> Near Amba Kala Chowk, main road adjacent to Panchayat Bhawan. Easily reachable from Piprahi PS.
-        </div>
-    </div>
-</main>
-
-<footer>
-    <div class="container">
-        <p>© 2025 Pradhuman Singh Medical Store | Amba Kala, Piprahi, Sheohar, Bihar (PIN: 843329)</p>
-        <p style="margin-top: 8px;"><i class="fas fa-shield-alt"></i> Your health is our priority — authentic medicines, compassionate care.</p>
-    </div>
-</footer>
-
 <script>
-    // Navigation handler: show correct page, update active link
+    // ----------------------- RANDOM BACKGROUND IMAGE (medical / pharmacy related) -----------------------
+    const bgImages = [
+        "https://images.pexels.com/photos/4386467/medical-medicine-pharmacy-pills.jpg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/3683043/pharmacist-preparing-medication.jpg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/139398/thermometer-pills-pharmacy-doctor-139398.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/2280545/medicine-drugs-pills-pharmacy.jpg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/4033339/health-stethoscope-medical-equipment-medicine.jpg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/7089399/medical-mask-pills-dispenser-bottle-pharmacy.jpg?auto=compress&cs=tinysrgb&w=1600"
+    ];
+
+    function setRandomBackground() {
+        const randomIndex = Math.floor(Math.random() * bgImages.length);
+        const selectedUrl = bgImages[randomIndex];
+        const bgDiv = document.getElementById('randomBg');
+        if (bgDiv) {
+            bgDiv.style.backgroundImage = `url('${selectedUrl}')`;
+            bgDiv.style.backgroundSize = "cover";
+            bgDiv.style.backgroundPosition = "center 30%";
+        }
+    }
+    setRandomBackground();
+
+    // ----------------------- PAGE NAVIGATION (6-7 pages with full medicine listing) -----------------------
     const pages = {
         home: 'home-page',
         antibiotics: 'antibiotics-page',
@@ -440,15 +496,15 @@
     };
 
     function showPage(pageId) {
-        // hide all pages
+        // Hide all pages
         Object.values(pages).forEach(id => {
-            const pageDiv = document.getElementById(id);
-            if (pageDiv) pageDiv.classList.remove('active-page');
+            const el = document.getElementById(id);
+            if (el) el.classList.remove('active-page');
         });
-        const activeDiv = document.getElementById(pageId);
-        if (activeDiv) activeDiv.classList.add('active-page');
+        const activeEl = document.getElementById(pageId);
+        if (activeEl) activeEl.classList.add('active-page');
 
-        // update nav active classes
+        // Update active class on nav links
         document.querySelectorAll('.nav-link').forEach(link => {
             link.classList.remove('active');
             const linkPage = link.getAttribute('data-page');
@@ -456,12 +512,10 @@
                 link.classList.add('active');
             }
         });
-        // scroll top
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Event listeners for all navigation links (including those within buttons)
-    function bindNavLinks() {
+    function bindNav() {
         const allNav = document.querySelectorAll('.nav-link');
         allNav.forEach(link => {
             link.addEventListener('click', (e) => {
@@ -469,50 +523,34 @@
                 const pageKey = link.getAttribute('data-page');
                 if (pageKey && pages[pageKey]) {
                     showPage(pages[pageKey]);
+                    // optional: update URL hash for better UX
+                    window.location.hash = pageKey;
                 } else {
-                    // fallback if any mistake
                     showPage('home-page');
                 }
             });
         });
     }
 
-    // initial active setup based on hash or default home
-    function setDefaultPage() {
-        const hash = window.location.hash.substring(1);
+    // hash change listener for back/forward
+    window.addEventListener('hashchange', () => {
+        let hash = window.location.hash.substring(1);
         if (hash && pages[hash]) {
             showPage(pages[hash]);
         } else {
             showPage('home-page');
         }
+    });
+
+    // initial load
+    const startHash = window.location.hash.substring(1);
+    if (startHash && pages[startHash]) {
+        showPage(pages[startHash]);
+    } else {
+        showPage('home-page');
     }
 
-    // Also handle back/forward with hashchange (nice progressive enhancement)
-    window.addEventListener('hashchange', () => {
-        const hash = window.location.hash.substring(1);
-        if (hash && pages[hash]) {
-            showPage(pages[hash]);
-        } else {
-            showPage('home-page');
-        }
-    });
-
-    // initial binding & default setup
-    bindNavLinks();
-    setDefaultPage();
-
-    // Additional: ensure any dynamically added .nav-link? not needed but robust
-    document.body.addEventListener('click', (e) => {
-        if (e.target.closest('.nav-link')) {
-            // already handled via bindNavLinks, but to be safe, we prevent double handling
-            const btn = e.target.closest('.nav-link');
-            if (btn && btn.getAttribute('data-page')) {
-                e.preventDefault();
-                const pk = btn.getAttribute('data-page');
-                if (pages[pk]) showPage(pages[pk]);
-            }
-        }
-    });
+    bindNav();
 </script>
 </body>
 </html>
