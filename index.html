@@ -185,7 +185,7 @@
       background-color: #0f5552;
     }
 
-    /* doctor card - with ps.png */
+    /* doctor card - with ps.png and experience badge */
     .doctor-card {
       flex: 0.9;
       background: rgba(255, 255, 255, 0.75);
@@ -221,6 +221,26 @@
     .doctor-card p {
       color: #2c6070;
       font-weight: 600;
+    }
+
+    /* NEW: Experience badge below doctor pic */
+    .exp-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #d4af37, #f5d742);
+      color: #1a4a2c;
+      font-weight: 800;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      margin-top: 12px;
+      margin-bottom: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      letter-spacing: 0.5px;
+    }
+
+    .exp-badge i {
+      margin-right: 6px;
+      color: #b8860b;
     }
 
     /* services */
@@ -483,7 +503,7 @@
     <i class="fas fa-phone-alt"></i>
   </div>
 
-  <!-- Hero Section with doctor image (ps.png) -->
+  <!-- Hero Section with doctor image (ps.png) and experience badge -->
   <div class="hero">
     <div class="hero-text">
       <div class="emergency-badge"><i class="fas fa-clock"></i> 24/7 Emergency Support</div>
@@ -497,6 +517,8 @@
     <div class="doctor-card">
       <!-- doctor image file: ps.png -->
       <img class="doctor-img" alt="Dr. Pradhuman - Chief Pharmacist & Emergency Care Specialist" style="width:100%; max-width:260px; border-radius:32px;">
+      <!-- EXPERIENCE BADGE: 8+ years just below doctor pic -->
+      <div class="exp-badge"><i class="fas fa-star-of-life"></i> 8+ Years of Excellence</div>
       <h3>Dr. Pradhuman Kumar</h3>
       <p><i class="fas fa-certificate"></i> Clinical Pharmacist · Emergency Care Specialist</p>
     </div>
@@ -524,7 +546,7 @@
     </div>
   </div>
 
-  <!-- Address + Google Map + Updated Contact Details (PIN CODE UPDATED TO 843334) -->
+  <!-- Address + Google Map + Updated Contact Details (PIN CODE: 843334) -->
   <div class="address-map-section">
     <div class="address-details">
       <h3><i class="fas fa-map-pin"></i> Store Location & 24/7 Contact</h3>
@@ -567,7 +589,7 @@
       doctorImg.alt = 'Dr. Pradhuman - Clinical Pharmacist & Emergency Care';
       doctorImg.style.objectFit = 'cover';
       doctorImg.onerror = function() {
-        console.log("Doctor image file: ps.png loaded as per specification.");
+        console.log("Doctor image file: ps.png as per specification.");
       };
     }
     
@@ -599,11 +621,11 @@
     if(consultDoc) {
       consultDoc.addEventListener('click', (e) => {
         e.preventDefault();
-        alert("👨‍⚕️ Free consultation with Dr. Pradhuman. Call 9852132282 (24x7) or visit store at Amba Kala.");
+        alert("👨‍⚕️ Free consultation with Dr. Pradhuman (8+ years experience). Call 9852132282 (24x7) or visit store at Amba Kala.");
       });
     }
     
-    console.log("Pradhuman Medical Store | Doctor: ps.png | PIN updated: 843334 | Contacts: 9852132282,6202250563 | Email: pradhumankumar7431@gmail.com | 24x7 emergency active");
+    console.log("Pradhuman Medical Store | Doctor: ps.png | Experience: 8+ years badge added | PIN: 843334 | 24x7 emergency active");
   })();
 </script>
 
@@ -611,13 +633,14 @@
   ✅ All requirements fulfilled:
   - Website name: Pradhuman Medical Store
   - Background image: med.png (fully visible with light overlay)
-  - Doctor profile picture: ps.png (updated file name)
+  - Doctor profile picture: ps.png
+  - ✅ NEW: "8+ Years of Excellence" badge added JUST BELOW the doctor picture
   - Mobile numbers: 9852132282 , 6202250563
   - Email: pradhumankumar7431@gmail.com
   - WhatsApp: 9852132282
   - Service: All day open + 24x7 emergency
   - Address: Vill+Post Amba Kala, PS Piprahi, Dist Sheohar, State Bihar
-  - PIN CODE UPDATED TO: 843334
+  - PIN CODE: 843334
   - Google Map integrated with new PIN area
 -->
 </body>
